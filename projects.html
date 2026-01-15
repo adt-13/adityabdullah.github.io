@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects | Adity Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Projects Page Specific Styles */
+        .projects-header {
+            margin-bottom: 50px;
+        }
+        
+        .project-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0 40px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 20px;
+            color: #cbd5e1;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: #38bdf8;
+            color: #7dd3fc;
+        }
+        
+        /* Enhanced Project Cards */
+        .project-card {
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            border-radius: 20px;
+            border: 1px solid #334155;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-header {
+            padding: 25px 25px 0;
+        }
+        
+        .project-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 15px;
+            background: rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        
+        .status-complete {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #eab308;
+            border-radius: 50%;
+        }
+        
+        .status-dot.complete {
+            background: #22c55e;
+        }
+        
+        .project-body {
+            padding: 0 25px 25px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+        
+        .tech-tag {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 15px;
+            padding: 5px 12px;
+            font-size: 12px;
+            color: #7dd3fc;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+        }
+        
+        /* Project Categories */
+        .project-category {
+            margin-bottom: 60px;
+        }
+        
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            color: #f8fafc;
+            font-size: 24px;
+        }
+        
+        .category-title i {
+            color: #38bdf8;
+        }
+        
+        /* Project Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Project Impact */
+        .project-impact {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid #38bdf8;
+        }
+        
+        .impact-title {
+            color: #38bdf8;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <div class="nav-container">
+        <div class="nav-brand">Adity<span>.</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <section class="page-section">
+        <div class="projects-header">
+            <h1 class="page-title">Projects</h1>
+            <p class="page-intro">
+                A showcase of my work in AI, neural networks, and embedded systems—focusing on practical 
+                implementations and research contributions.
+            </p>
+        </div>
+        
+        <!-- Project Filter (Optional - Can remove if not needed) -->
+        <div class="project-filter">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="ai">AI/ML Research</button>
+            <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
+            <button class="filter-btn" data-filter="medical">Medical AI</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+        </div>
+        
+        <!-- AI/ML Projects -->
+        <div class="project-category">
+            <h2 class="category-title">
+                <i class="fas fa-brain"></i> AI & Machine Learning Research
+            </h2>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Cardiac Arrhythmia Detection -->
+                <article class="project-card" data-category="ai medical embedded">
+                    <div class="project-header">
+                        <div class="project-status">
+                            <span class="status-dot"></span>
+                            <span>Active Research</span>
+                        </div>
+                        <h3 style="font-size: 20px; color: #f8fafc; margin-bottom: 10px;">
+                            Low-Power Cardiac Arrhythmia Detection on ESP32-S3 (SNN vs ANN)
+                        </h3>
+                    </div>
+                    
+                    <div class="project-body">
+                        <p style="color: #cbd5e1; line-height: 1.6; margin-bottom: 15px;">
+                            Implementing and evaluating a low-power, real-time cardiac arrhythmia detection system 
+                            on ESP32-S3 microcontroller. Comparing Spiking Neural Network (SNN) performance against 
+                            conventional ANN baselines in terms of accuracy, latency, memory footprint, and energy 
+                            consumption for medical edge computing applications.
+                        </p>
+                        
+                        <div class="project-impact">
+                            <div class="impact-title">
+                                <i class="fas fa-bullseye"></i> Research Impact
+                            </div>
+                            <p style="color: #94a3b8; font-size: 14px;">
+                                Advances neuromorphic computing for medical devices and establishes benchmarks for 
+                                SNN efficiency on microcontrollers.
+                            </p>
+                        </div>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">SNN</span>
+                            <span class="tech-tag">ANN</span>
+                            <span class="tech-tag">ESP32-S3</span>
+                            <span class="tech-tag">TensorFlow Lite</span>
+                            <span class="tech-tag">Medical AI</span>
+                            <span class="tech-tag">Edge Computing</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">C++</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline" style="padding: 8px 20px; font-size: 14px;">
+                                <i class="fas fa-file-alt"></i> Research Paper
+                            </a>
+                            <a href="#" class="btn btn-outline" style="padding: 8px 20px; font-size: 14px;">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Project 2: Movie Recommendation System -->
+                <article class="project-card" data-category="ai web">
+                    <div class="project-header">
+                        <div class="project-status status-complete">
+                            <span class="status-dot complete"></span>
+                            <span>Completed</span>
+                        </div>
+                        <h3 style="font-size: 20px; color: #f8fafc; margin-bottom: 10px;">
+                            Content-Based Movie Recommendation System
+                        </h3>
+                    </div>
+                    
+                    <div class="project-body">
+                        <p style="color: #cbd5e1; line-height: 1.6; margin-bottom: 15px;">
+                            A content-based movie recommender built in Python using TF-IDF features and 
+                            Cosine Similarity on the MovieLens dataset. Features an interactive Streamlit 
+                            web interface with real-time movie poster fetching from TMDB API, demonstrating 
+                            practical ML application development and deployment.
+                        </p>
+                        
+                        <div class="project-impact">
+                            <div class="impact-title">
+                                <i class="fas fa-chart-line"></i> Key Features
+                            </div>
+                            <p style="color: #94a3b8; font-size: 14px;">
+                                Real-time recommendations, API integration, and interactive visualization of 
+                                similarity metrics and movie data.
+                            </p>
+                        </div>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">scikit-learn</span>
+                            <span class="tech-tag">Streamlit</span>
+                            <span class="tech-tag">TF-IDF</span>
+                            <span class="tech-tag">MovieLens</span>
+                            <span class="tech-tag">TMDB API</span>
+                            <span class="tech-tag">Recommendation Systems</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline" style="padding: 8px 20px; font-size: 14px;">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/adt-13" target="_blank" class="btn btn-outline" style="padding: 8px 20px; font-size: 14px;">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        
+        <!-- Embedded Systems Projects -->
+        <div class="project-category">
+            <h2 class="category-title">
+                <i class="fas fa-microchip"></i> Embedded Systems & Edge AI
+            </h2>
+            
+            <div class="projects-grid">
+                <!-- Project 3: Continual Learning Classifier -->
+                <article class="project-card" data-category="embedded ai">
+                    <div class="project-header">
+                        <div class="project-status">
+                            <span class="status-dot"></span>
+                            <span>In Development</span>
+                        </div>
+                        <h3 style="font-size: 20px; color: #f8fafc; margin-bottom: 10px;">
+                            Continual Learning Image Classifier on ESP32-S3
+                        </h3>
+                    </div>
+                    
+                    <div class="project-body">
+                        <p style="color: #cbd5e1; line-height: 1.6; margin-bottom: 15px;">
+                            A multi-class image classifier deployed on ESP32-S3 with OV2640 camera using 
+                            quantized MobileNetV2 via TensorFlow Lite Micro. The project explores continuous 
+                            learning on-device, enabling the classifier to expand to new classes over time 
+                            while operating within strict memory and energy constraints of edge devices.
+                        </p>
+                        
+                        <div class="project-impact">
+                            <div class="impact-title">
+                                <i class="fas fa-cogs"></i> Technical Innovation
+                            </div>
+                            <p style="color: #94a3b8; font-size: 14px;">
+                                Implements on-device learning capabilities on microcontroller hardware, 
+                                pushing boundaries of edge AI adaptability.
+                            </p>
+                        </div>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">ESP32-S3</span>
+                            <span class="tech-tag">OV2640 Camera</span>
+                            <span class="tech-tag">TensorFlow Lite Micro</span>
+                            <span class="tech-tag">MobileNetV2</span>
+                            <span class="tech-tag">ESP-IDF</span>
+                            <span class="tech-tag">Continual Learning</span>
+                            <span class="tech-tag">Edge AI</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="#" class="btn btn-outline" style="padding: 8px 20px; font-size: 14px;">
+                                <i class="fas fa-video"></i> Demo Video
+                            </a>
+                            <a href="#" class="btn btn-outline" style="padding: 8px 20px; font-size: 14px;">
+                                <i class="fas fa-code"></i> Implementation
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Project 4: Portfolio Website -->
+                <article class="project-card" data-category="web">
+                    <div class="project-header">
+                        <div class="project-status status-complete">
+                            <span class="status-dot complete"></span>
+                            <span>Completed</span>
+                        </div>
+                        <h3 style="font-size: 20px; color: #f8fafc; margin-bottom: 10px;">
+                            Professional Portfolio Website
+                        </h3>
+                    </div>
+                    
+                    <div class="project-body">
+                        <p style="color: #cbd5e1; line-height: 1.6; margin-bottom: 15px;">
+                            A responsive, modern portfolio website showcasing AI and embedded systems projects. 
+                            Built with HTML5, CSS3, and JavaScript, featuring a dark theme optimized for 
+                            technical content presentation. Deployed via GitHub Pages with professional 
+                            design patterns and accessibility considerations.
+                        </p>
+                        
+                        <div class="project-impact">
+                            <div class="impact-title">
+                                <i class="fas fa-globe"></i> Professional Presence
+                            </div>
+                            <p style="color: #94a3b8; font-size: 14px;">
+                                Establishes professional online presence and demonstrates full-stack 
+                                web development capabilities alongside AI expertise.
+                            </p>
+                        </div>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">GitHub Pages</span>
+                            <span class="tech-tag">Responsive Design</span>
+                            <span class="tech-tag">Web Development</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="index.html" class="btn btn-outline" style="padding: 8px 20px; font-size: 14px;">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                            <a href="https://github.com/adityabdullah/adityabdullah.github.io" target="_blank" class="btn btn-outline" style="padding: 8px 20px; font-size: 14px;">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        
+        <!-- Future Projects Section -->
+        <div style="margin-top: 80px; padding-top: 50px; border-top: 1px solid #334155;">
+            <h2 class="category-title">
+                <i class="fas fa-road"></i> Future Research Directions
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <div style="background: rgba(15, 23, 42, 0.5); padding: 25px; border-radius: 16px; border: 1px dashed #475569;">
+                    <h3 style="color: #f8fafc; margin-bottom: 10px;">Federated Learning on Edge</h3>
+                    <p style="color: #94a3b8; font-size: 14px;">
+                        Exploring privacy-preserving AI training across distributed edge devices without 
+                        centralized data collection.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(15, 23, 42, 0.5); padding: 25px; border-radius: 16px; border: 1px dashed #475569;">
+                    <h3 style="color: #f8fafc; margin-bottom: 10px;">Neuromorphic Hardware</h3>
+                    <p style="color: #94a3b8; font-size: 14px;">
+                        Investigating dedicated neuromorphic processors for more efficient SNN implementations 
+                        beyond microcontroller platforms.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(15, 23, 42, 0.5); padding: 25px; border-radius: 16px; border: 1px dashed #475569;">
+                    <h3 style="color: #f8fafc; margin-bottom: 10px;">Multi-modal Edge AI</h3>
+                    <p style="color: #94a3b8; font-size: 14px;">
+                        Combining sensor fusion techniques with lightweight neural networks for sophisticated 
+                        edge device perception.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="nav-container">
+        <p>© 2024 Adity Abdullah. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 12px; color: #94a3b8;">
+            <i class="fas fa-code"></i> AI & Embedded Systems Portfolio
+        </p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+    // Simple filter functionality (optional - can remove if not needed)
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            const projects = document.querySelectorAll('.project-card');
+            
+            projects.forEach(project => {
+                if (filter === 'all' || project.getAttribute('data-category').includes(filter)) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

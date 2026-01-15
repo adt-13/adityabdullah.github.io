@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | Adity Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for contact page */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-card {
+            background: linear-gradient(145deg, #0f172a, #1e293b);
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-color: #38bdf8;
+        }
+        
+        .contact-icon {
+            font-size: 32px;
+            color: #38bdf8;
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-method {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid #38bdf8;
+        }
+        
+        .contact-method h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #f8fafc;
+        }
+        
+        .contact-method p {
+            color: #cbd5e1;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .contact-link {
+            color: #38bdf8;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+        
+        .contact-link:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+        
+        .availability {
+            background: rgba(56, 189, 248, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .availability h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+        
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(34, 197, 94, 0.15);
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <div class="nav-container">
+        <div class="nav-brand">Adity<span>.</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <section class="page-section">
+        <h1 class="page-title">Get In Touch</h1>
+        <p class="page-intro">
+            I'm always open to discussing AI research, embedded systems projects, or potential collaborations.
+            Feel free to reach out through any of the channels below.
+        </p>
+        
+        <div class="contact-grid">
+            <!-- Email Card -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-method">
+                    <h3>Email</h3>
+                    <p>For direct inquiries, project discussions, or research collaboration.</p>
+                    <a href="mailto:adt13abdullah@gmail.com" class="contact-link">
+                        <i class="fas fa-paper-plane"></i>
+                        adt13abdullah@gmail.com
+                    </a>
+                </div>
+                <p class="small-text" style="margin-top: 20px;">
+                    <i class="fas fa-clock"></i> Response time: Within 24-48 hours
+                </p>
+            </div>
+            
+            <!-- GitHub Card -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-method">
+                    <h3>GitHub</h3>
+                    <p>Explore my open-source projects, code repositories, and contributions.</p>
+                    <a href="https://github.com/adt-13" target="_blank" class="contact-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        github.com/adt-13
+                    </a>
+                </div>
+                <p class="small-text" style="margin-top: 20px;">
+                    <i class="fas fa-code-branch"></i> Active in AI/ML and embedded projects
+                </p>
+            </div>
+            
+            <!-- LinkedIn Card -->
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <div class="contact-method">
+                    <h3>LinkedIn</h3>
+                    <p>Connect professionally, view my experience, and follow my research updates.</p>
+                    <a href="https://www.linkedin.com/in/adityabdullah/" target="_blank" class="contact-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        linkedin.com/in/adityabdullah
+                    </a>
+                </div>
+                <p class="small-text" style="margin-top: 20px;">
+                    <i class="fas fa-network-wired"></i> Open to professional connections
+                </p>
+            </div>
+        </div>
+        
+        <!-- Availability Section -->
+        <div class="availability">
+            <h3>Current Availability</h3>
+            <p>
+                I'm currently available for:
+                <ul class="skills-list" style="margin-top: 10px;">
+                    <li>Research collaborations in AI/ML and embedded systems</li>
+                    <li>Discussing TinyML and edge AI implementation challenges</li>
+                    <li>Open-source project contributions in neural networks</li>
+                    <li>Academic discussions on SNNs and neuromorphic computing</li>
+                </ul>
+            </p>
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span>Available for new opportunities</span>
+            </div>
+        </div>
+        
+        <!-- Preferred Contact Method -->
+        <div style="margin-top: 40px; padding: 25px; background: rgba(15, 23, 42, 0.7); border-radius: 12px;">
+            <h3 style="color: #38bdf8; margin-bottom: 15px;">Best Way to Reach Me</h3>
+            <p style="color: #cbd5e1; line-height: 1.7;">
+                <strong>Email is the most reliable way</strong> to contact me. For technical discussions related to 
+                specific projects, please include relevant details about your inquiry. I make an effort to respond 
+                to all serious inquiries within 48 hours. For students or researchers interested in similar areas 
+                (ANN/SNN, ESP32 deployments, TinyML), I'm particularly enthusiastic about exchanging ideas.
+            </p>
+            <p style="color: #94a3b8; font-size: 14px; margin-top: 15px; font-style: italic;">
+                <i class="fas fa-lightbulb"></i> Tip: Mention "ESP32-S3" or "SNN" in your subject line for faster responses on relevant topics.
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="nav-container">
+        <p>© 2024 Adity Abdullah. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 12px; color: #94a3b8;">
+            <i class="fas fa-code"></i> AI & Embedded Systems Portfolio
+        </p>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
